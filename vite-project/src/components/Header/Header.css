@@ -4,17 +4,26 @@
   padding: 32px 0 28px;
 }
 
-header__logo {
+.header__logo {
   margin-right: 24px;
 }
 
 .header__date-location {
   margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
 }
 
 .header__add-clothes-btn {
   margin-left: auto;
   margin: 0 20px 0 auto;
+  border-style: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  font-style: bold;
 }
 
 .header__user-container {
@@ -25,4 +34,7 @@ header__logo {
 
 .header__username {
   margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
 }

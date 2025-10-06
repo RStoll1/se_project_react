@@ -8,6 +8,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
 }
 
 .modal__title {
@@ -44,4 +49,27 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+}
+
+input[type="radio"]:checked {
+  background-color: black; /* Color when selected */
+}
+
+.modal__submit {
+  border-radius: 4px;
+  padding: 8px 16px;
+  border-style: none;
+  background-color: #000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__submit:hover {
+  background-color: #00000099;
 }
