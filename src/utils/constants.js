@@ -65,7 +65,7 @@ export const defaultWeatherOptions = {
     day: {
         url: new URL("../assets/day/default.svg", import.meta.url).href,
     },
-    day: {
+    night: {
         url: new URL("../assets/night/default.svg", import.meta.url).href,
     },
 };
@@ -145,7 +145,7 @@ const defaultClothingItems = [
     {
         _id: 11,
         name: "Shorts",
-        weather: "Hot",
+        weather: "hot",
         link:
             "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Shorts.png?etag=d728c496643f610de8d8fea92dd915ba",
     },
@@ -192,6 +192,6 @@ export const coordinates = {
     longitude: -86.781601,
 }
 
-export const APIkey = "51829f627a37d9058fac72440de050e5";
+export const apiKey = "51829f627a37d9058fac72440de050e5";
 
 export { defaultClothingItems };
