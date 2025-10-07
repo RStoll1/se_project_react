@@ -16,13 +16,19 @@
 }
 
 .modal__title {
-  margin: 0;
+  margin: 0 0 24px;
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .modal__close {
   position: absolute;
   top: 20px;
   right: 28px;
+  background-color: transparent;
+  border: none;
 }
 
 .modal__content {
@@ -32,16 +38,34 @@
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;
+  border-radius: 20px;
 }
 
 .modal__form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 24px;
+}
+
+.modal__label {
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+}
+
+.modal__legend {
+  margin-bottom: 12px;
 }
 
 .modal__input {
   display: block;
+  margin-top: 8px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
 }
 
 .modal__radio-buttons {
@@ -49,14 +73,23 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  color: #000;
+  gap: 8px;
 }
 
-input[type="radio"]:checked {
-  background-color: black; /* Color when selected */
+.modal__label_type_radio {
+  color: #00000080;
+}
+
+.moadl__radio-input {
+  color: #00000080;
+}
+
+.modal__radio-input:checked {
+  accent-color: #000;
 }
 
 .modal__submit {
@@ -65,9 +98,11 @@ input[type="radio"]:checked {
   border-style: none;
   background-color: #000;
   color: #fff;
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+  width: 30%;
 }
 
 .modal__submit:hover {

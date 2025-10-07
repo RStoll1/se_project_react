@@ -8,6 +8,7 @@
 }
 
 .cards__text {
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 100%;

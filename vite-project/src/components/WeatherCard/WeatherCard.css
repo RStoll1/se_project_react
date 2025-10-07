@@ -7,6 +7,7 @@
 }
 
 .weather-card__temp {
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: 700px;
   color: #fff;
