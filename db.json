@@ -79,10 +79,22 @@
       "_id": 20
     },
     {
-      "name": "aklsdfj",
+      "name": "asdf",
       "imageUrl": "https://duckduckgo.com/i/36897d4397b4d629.png",
       "weather": "warm",
       "_id": 21
+    },
+    {
+      "name": "asdasd",
+      "imageUrl": "https://duckduckgo.com/i/36897d4397b4d629.png",
+      "weather": "warm",
+      "_id": 22
+    },
+    {
+      "name": "asda",
+      "imageUrl": "https://duckduckgo.com/i/36897d4397b4d629.png",
+      "weather": "warm",
+      "_id": 23
     }
   ]
 }
