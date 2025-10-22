@@ -26,3 +26,9 @@ WTWR offers users an intuitive way to decide what to wear each day by displaying
 - **HTML5**
 - **Node.js / npm** for package management
 - **GitHub Pages** for deployment
+
+## Video Walkthrough
+
+Video explanation of the app and walkthrough below.
+
+[https://drive.google.com/file/d/13Onq1cbCQgilYJah1EfZX7HrPutRspmf/view?usp=sharing](https://drive.google.com/file/d/13Onq1cbCQgilYJah1EfZX7HrPutRspmf/view?usp=sharing)
