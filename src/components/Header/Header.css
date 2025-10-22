@@ -6,6 +6,7 @@
 
 .header__logo {
   margin-right: 24px;
+  cursor: pointer;
 }
 
 .header__date-location {
@@ -24,6 +25,7 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  cursor: pointer;
 }
 
 .header__user-container {
@@ -35,6 +37,7 @@
 .header__nav-link {
   color: #000;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .header__username {
