@@ -1,0 +1,23 @@
+.sidebar__user-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.sidebar__avatar {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+}
+
+.sidebar__username {
+  margin: 0;
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  flex-grow: 1;
+  white-space: nowrap;
+}

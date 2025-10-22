@@ -2,8 +2,6 @@
 
 **WTWR (What To Wear)** is a responsive React application that helps users choose clothing based on the current weather conditions in a selected location.
 
-![WTWR Preview](https://your-screenshot-or-gif-url-if-you-have-one.com)
-
 ## Project Overview
 
 WTWR offers users an intuitive way to decide what to wear each day by displaying weather data and clothing options that match the temperature. Weather information is pulled from a free external API and used to filter and display appropriate clothing cards dynamically.

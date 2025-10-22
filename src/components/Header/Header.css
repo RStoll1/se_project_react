@@ -17,7 +17,6 @@
 }
 
 .header__add-clothes-btn {
-  margin-left: auto;
   margin: 0 20px 0 auto;
   border-style: none;
   background: none;
@@ -31,6 +30,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.header__nav-link {
+  color: #000;
+  text-decoration: none;
 }
 
 .header__username {
