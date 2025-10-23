@@ -69,19 +69,48 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, apiKey)
-      .then((data) => {
-        const filteredData = filterWeatherData(data);
-        setWeatherData(filteredData);
-      })
-      .catch(console.error);
+    // helper to fetch weather and items
+    const fetchWeatherAndItems = (coords) => {
+      getWeather(coords, apiKey)
+        .then((data) => {
+          const filteredData = filterWeatherData(data);
+          setWeatherData(filteredData);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
 
-    getItems()
-      .then((data) => {
-        data.reverse();
-        setClothingItems(data);
-      })
-      .catch(console.error);
+      getItems()
+        .then((data) => {
+          data.reverse();
+          setClothingItems(data);
+        })
+        .catch(console.error);
+    };
+
+    if (navigator && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const coords = {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude,
+          };
+          fetchWeatherAndItems(coords);
+        },
+        (err) => {
+          // fallback to default coordinates when permission denied or error
+          console.warn(
+            "Geolocation failed or denied, falling back to default coordinates",
+            err
+          );
+          fetchWeatherAndItems(coordinates);
+        },
+        { enableHighAccuracy: false, timeout: 5000 }
+      );
+    } else {
+      // no geolocation support
+      fetchWeatherAndItems(coordinates);
+    }
   }, []);
 
   return (

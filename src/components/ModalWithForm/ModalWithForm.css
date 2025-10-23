@@ -68,6 +68,14 @@
   border-bottom: 1px solid #000;
 }
 
+.modal__input_type_error {
+  border-bottom: 2px solid #d0021b;
+  outline: none;
+}
+.modal__input::placeholder {
+  color: #8a8a8a;
+}
+
 .modal__radio-buttons {
   border: none;
   padding: 0;
@@ -88,6 +96,11 @@
   accent-color: #000;
 }
 
+.modal__radio-buttons_type_error {
+  border-left: 3px solid #d0021b;
+  padding-left: 12px;
+}
+
 .modal__submit {
   border-radius: 4px;
   padding: 8px 16px;
@@ -103,4 +116,18 @@
 
 .modal__submit:hover {
   background-color: #00000099;
+}
+
+.modal__error {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: transparent;
+  height: 0;
+  transition: color 120ms ease-in-out, height 120ms ease-in-out;
+}
+
+.modal__error_visible {
+  color: #d0021b;
+  height: auto;
 }

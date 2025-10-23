@@ -1,5 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useForm } from "../../hooks/useForm.js";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const defaultValues = {
@@ -7,12 +7,24 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     imageUrl: "",
     weatherType: "",
   };
-  const { values, handleChange, resetForm } = useForm(defaultValues);
+
+  const {
+    values,
+    handleChange,
+    resetForm,
+    errors,
+    isValid,
+    showErrors,
+    touched,
+    handleSubmitAttempt,
+  } = useFormWithValidation(defaultValues);
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    const ok = handleSubmitAttempt();
+    if (!ok) return;
     onAddItem(values);
-    resetForm();
+    resetForm(defaultValues, {}, false);
   }
 
   return (
@@ -24,31 +36,62 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
       onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
-        Name{" "}
+        Name
         <input
           name="name"
           type="text"
-          className="modal__input"
+          className={`modal__input ${
+            (showErrors || touched.name) && errors.name
+              ? "modal__input_type_error"
+              : ""
+          }`}
           id="name"
           placeholder="Name"
-          value={values.name}
+          value={values.name || ""}
           onChange={handleChange}
         />
+        <span
+          className={`modal__error ${
+            (showErrors || touched.name) && errors.name
+              ? "modal__error_visible"
+              : ""
+          }`}
+        >
+          {(showErrors || touched.name) && errors.name ? errors.name : ""}
+        </span>
       </label>
+
       <label htmlFor="imageUrl" className="modal__label">
-        Image{" "}
+        Image
         <input
           name="imageUrl"
-          type="url"
-          className="modal__input"
+          type="text"
+          className={`modal__input ${
+            (showErrors || touched.imageUrl) && errors.imageUrl
+              ? "modal__input_type_error"
+              : ""
+          }`}
           id="imageUrl"
           placeholder="Image Url"
-          value={values.imageUrl}
+          value={values.imageUrl || ""}
           onChange={handleChange}
         />
+        <span
+          className={`modal__error ${
+            (showErrors || touched.imageUrl) && errors.imageUrl
+              ? "modal__error_visible"
+              : ""
+          }`}
+        >
+          {(showErrors || touched.imageUrl) && errors.imageUrl
+            ? errors.imageUrl
+            : ""}
+        </span>
       </label>
+
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type:</legend>
+
         <label htmlFor="hot" className="modal__label modal__label_type_radio">
           <input
             id="hot"
@@ -58,9 +101,10 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             value="hot"
             onChange={handleChange}
             className="modal__radio-input"
-          />{" "}
+          />
           Hot
         </label>
+
         <label htmlFor="warm" className="modal__label modal__label_type_radio">
           <input
             id="warm"
@@ -70,9 +114,10 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             value="warm"
             onChange={handleChange}
             className="modal__radio-input"
-          />{" "}
+          />
           Warm
         </label>
+
         <label htmlFor="cold" className="modal__label modal__label_type_radio">
           <input
             id="cold"
@@ -82,9 +127,21 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             value="cold"
             onChange={handleChange}
             className="modal__radio-input"
-          />{" "}
+          />
           Cold
         </label>
+
+        <span
+          className={`modal__error ${
+            (showErrors || touched.weatherType) && errors.weatherType
+              ? "modal__error_visible"
+              : ""
+          }`}
+        >
+          {(showErrors || touched.weatherType) && errors.weatherType
+            ? errors.weatherType
+            : ""}
+        </span>
       </fieldset>
     </ModalWithForm>
   );
