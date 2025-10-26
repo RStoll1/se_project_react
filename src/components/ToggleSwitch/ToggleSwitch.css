@@ -1,5 +1,4 @@
 .toggle-switch {
-  margin-left: 625px;
   width: 56px;
   height: 28px;
   border: 2px solid #000;
@@ -7,6 +6,7 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
+  flex: 0 0 56px; /* prevent shrinking or growing in header flex layout */
 }
 
 .toggle-switch__checkbox {
