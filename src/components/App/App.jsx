@@ -65,6 +65,16 @@ function App() {
   };
 
   const closeActiveModal = () => {
+    try {
+      // notify any listeners that a modal is about to close
+      window.dispatchEvent(
+        new CustomEvent("modal:close", { detail: { modalId: activeModal } })
+      );
+    } catch (err) {
+      // ignore if CustomEvent isn't available for some reason
+      // eslint-disable-next-line no-console
+      console.error("Error dispatching modal:close event", err);
+    }
     setActiveModal("");
   };
 

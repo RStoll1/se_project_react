@@ -1,5 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
+import { useEffect } from "react";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const defaultValues = {
@@ -24,8 +25,17 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     const ok = handleSubmitAttempt();
     if (!ok) return;
     onAddItem(values);
-    resetForm(defaultValues, {}, false);
   }
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e?.detail?.modalId === "add-garment") {
+        resetForm(defaultValues, {}, false);
+      }
+    };
+    window.addEventListener("modal:close", handler);
+    return () => window.removeEventListener("modal:close", handler);
+  }, [resetForm]);
 
   return (
     <ModalWithForm

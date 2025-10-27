@@ -6,7 +6,7 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  flex: 0 0 56px; /* prevent shrinking or growing in header flex layout */
+  flex: 0 0 56px;
 }
 
 .toggle-switch__checkbox {
