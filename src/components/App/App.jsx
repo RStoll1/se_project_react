@@ -69,7 +69,6 @@ function App() {
   };
 
   useEffect(() => {
-    // helper to fetch weather and items
     const fetchWeatherAndItems = (coords) => {
       getWeather(coords, apiKey)
         .then((data) => {
@@ -98,7 +97,6 @@ function App() {
           fetchWeatherAndItems(coords);
         },
         (err) => {
-          // fallback to default coordinates when permission denied or error
           console.warn(
             "Geolocation failed or denied, falling back to default coordinates",
             err
@@ -108,7 +106,6 @@ function App() {
         { enableHighAccuracy: false, timeout: 5000 }
       );
     } else {
-      // no geolocation support
       fetchWeatherAndItems(coordinates);
     }
   }, []);

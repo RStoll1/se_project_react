@@ -37,6 +37,17 @@
   flex: 0 0 auto;
 }
 
+.header__use-location-btn {
+  margin: 0 8px;
+  border-style: none;
+  background: none;
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #00000080;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;
