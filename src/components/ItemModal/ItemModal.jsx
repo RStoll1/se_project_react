@@ -1,7 +1,10 @@
 import "./ItemModal.css";
+import React from "react";
 import closeIcon from "../../assets/closebtnwhite.svg";
+import CurrentUserContext from "../../contexts/CurrentUserContext.jsx";
 
 function ItemModal({ activeModal, onClose, card, onDelete }) {
+  const currentUser = React.useContext(CurrentUserContext);
   const handleDelete = () => {
     onDelete(card._id);
   };
@@ -14,9 +17,11 @@ function ItemModal({ activeModal, onClose, card, onDelete }) {
         <img src={card.imageUrl} alt={card.name} className="modal__image" />
         <div className="modal__footer">
           <h2 className="modal__caption">{card.name}</h2>
-          <button className="modal__delete-btn" onClick={handleDelete}>
-            Delete item
-          </button>
+          {currentUser?._id && card?.owner === currentUser._id && (
+            <button className="modal__delete-btn" onClick={handleDelete}>
+              Delete item
+            </button>
+          )}
         </div>
         <p className="modal__weather">Weather: {card.weather}</p>
       </div>

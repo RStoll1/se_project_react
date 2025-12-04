@@ -37,6 +37,18 @@
   flex: 0 0 auto;
 }
 
+.header__login-btn {
+  margin: 0 8px;
+  border-style: none;
+  background: none;
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;
@@ -56,4 +68,21 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+}
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.header__avatar_circle {
+  background-image: url("../../assets/images/default-avatar.png");
+  background-size: cover;
+  background-position: center;
 }
