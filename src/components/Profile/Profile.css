@@ -2,27 +2,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.profile__edit-button {
-  margin: 0 8px;
-  border-style: none;
-  background: none;
-  font-family: "Cabinet", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  cursor: pointer;
-  flex: 0 0 auto;
-}
-
-.profile__logout-button {
-  margin: 0 8px;
-  border-style: none;
-  background: none;
-  font-family: "Cabinet", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  cursor: pointer;
-  flex: 0 0 auto;
-}

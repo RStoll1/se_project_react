@@ -6,9 +6,17 @@
   justify-content: center;
 }
 
-.card__name {
+.card__header {
   position: absolute;
-  top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 15px;
+}
+
+.card__name {
+  position: static;
   margin: 0;
   padding: 2px 12px 2px 12px;
   border-radius: 4px;
@@ -18,6 +26,11 @@
   font-size: 16px;
   line-height: 20px;
   color: #00000099;
+}
+
+.card__like-btn {
+  position: static;
+  cursor: pointer;
 }
 
 .card__image {

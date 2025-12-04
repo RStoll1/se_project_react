@@ -15,22 +15,20 @@ export default function Sidebar({ handleEditClick, handleLogoutClick }) {
           className="sidebar__avatar"
         />
       </div>
-      <div className="sidebar__buttons">
-        <button
-          onClick={handleEditClick}
-          className="sidebar__edit-button"
-          type="button"
-        >
-          Change profile data
-        </button>
-        <button
-          onClick={handleLogoutClick}
-          className="sidebar__logout-button"
-          type="button"
-        >
-          Log out
-        </button>
-      </div>
+      <button
+        onClick={handleEditClick}
+        className="sidebar__edit-button"
+        type="button"
+      >
+        Change profile data
+      </button>
+      <button
+        onClick={handleLogoutClick}
+        className="sidebar__logout-button"
+        type="button"
+      >
+        Log out
+      </button>
     </aside>
   );
 }

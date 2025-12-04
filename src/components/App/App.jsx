@@ -22,6 +22,8 @@ import {
   register,
   getCurrentUser,
   editUserProfile,
+  addCardLike,
+  removeCardLike,
 } from "../../utils/api.js";
 
 function App() {
@@ -149,7 +151,29 @@ function App() {
     setActiveModal("");
   };
 
-  // On initial load, if a JWT exists, mark logged in and fetch user
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    // Check if this card is not currently liked
+    !isLiked
+      ? // if so, send a request to add the user's id to the card's likes array
+        addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, send a request to remove the user's id from the card's likes array
+        removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
+  // If a JWT exists, mark logged in and fetch user
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (!token) return;
@@ -229,6 +253,7 @@ function App() {
                     clothingItems={clothingItems}
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
@@ -242,6 +267,7 @@ function App() {
                     handleEditClick={handleEditClick}
                     handleEditProfile={handleEditProfile}
                     handleLogoutClick={handleLogoutClick}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
