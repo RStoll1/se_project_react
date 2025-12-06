@@ -2,7 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { useEffect } from "react";
 
-const RegisterModal = ({ isOpen, onRegister, onClose }) => {
+const RegisterModal = ({ isOpen, onRegister, onClose, onSwitchToLogin }) => {
   const defaultValues = {
     email: "",
     password: "",
@@ -45,6 +45,15 @@ const RegisterModal = ({ isOpen, onRegister, onClose }) => {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      secondaryAction={
+        <button
+          type="button"
+          className="modal__secondary-button"
+          onClick={onSwitchToLogin}
+        >
+          or Log In
+        </button>
+      }
     >
       <label htmlFor="name" className="modal__label">
         Name

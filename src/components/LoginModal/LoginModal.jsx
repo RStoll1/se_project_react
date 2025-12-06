@@ -2,7 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { useEffect } from "react";
 
-const LoginModal = ({ isOpen, onLogin, onClose }) => {
+const LoginModal = ({ isOpen, onLogin, onClose, onSwitchToRegister }) => {
   const defaultValues = {
     email: "",
     password: "",
@@ -43,8 +43,17 @@ const LoginModal = ({ isOpen, onLogin, onClose }) => {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      secondaryAction={
+        <button
+          type="button"
+          className="modal__secondary-button"
+          onClick={onSwitchToRegister}
+        >
+          or Register
+        </button>
+      }
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="login-email" className="modal__label">
         Email
         <input
           name="email"
@@ -54,7 +63,7 @@ const LoginModal = ({ isOpen, onLogin, onClose }) => {
               ? "modal__input_type_error"
               : ""
           }`}
-          id="email"
+          id="login-email"
           placeholder="Email"
           value={values.email}
           onChange={handleChange}
@@ -65,7 +74,7 @@ const LoginModal = ({ isOpen, onLogin, onClose }) => {
         )}
       </label>
 
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="login-password" className="modal__label">
         Password
         <input
           name="password"
@@ -75,7 +84,7 @@ const LoginModal = ({ isOpen, onLogin, onClose }) => {
               ? "modal__input_type_error"
               : ""
           }`}
-          id="password"
+          id="login-password"
           placeholder="Password"
           value={values.password}
           onChange={handleChange}

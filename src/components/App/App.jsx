@@ -10,6 +10,7 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Profile from "../Profile/Profile.jsx";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.jsx";
 import CurrentUserContext from "../../contexts/CurrentUserContext.jsx";
@@ -260,15 +261,17 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    onCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                    handleAddClick={handleAddClick}
-                    handleEditClick={handleEditClick}
-                    handleEditProfile={handleEditProfile}
-                    handleLogoutClick={handleLogoutClick}
-                    onCardLike={handleCardLike}
-                  />
+                  <ProtectedRoute isLoggedIn={isLoggedIn} redirectPath="/">
+                    <Profile
+                      onCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      handleAddClick={handleAddClick}
+                      handleEditClick={handleEditClick}
+                      handleEditProfile={handleEditProfile}
+                      handleLogoutClick={handleLogoutClick}
+                      onCardLike={handleCardLike}
+                    />
+                  </ProtectedRoute>
                 }
               />
             </Routes>
@@ -295,11 +298,18 @@ function App() {
             isOpen={activeModal === "login"}
             onLogin={handleLogin}
             onClose={closeActiveModal}
+            onSwitchToRegister={handleRegisterClick}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             onClose={closeActiveModal}
             onSubmit={handleEditProfile}
+          />
+          <RegisterModal
+            isOpen={activeModal === "register"}
+            onRegister={handleRegister}
+            onClose={closeActiveModal}
+            onSwitchToLogin={handleLoginClick}
           />
         </div>
       </CurrentUserContext.Provider>

@@ -48,6 +48,24 @@
   gap: 24px;
 }
 
+.modal__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal__secondary-button {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  cursor: pointer;
+  font-family: "Cabinet", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #00000080;
+}
+
 .modal__label {
   font-family: "Cabinet", Arial, Helvetica, sans-serif;
   font-weight: 700;
