@@ -82,7 +82,7 @@
 }
 
 .header__avatar_circle {
-  background-image: url("../../assets/images/default-avatar.png");
+  background-image: url("../../assets/DefaultAvatar.png");
   background-size: cover;
   background-position: center;
 }

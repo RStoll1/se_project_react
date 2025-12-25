@@ -1,7 +1,6 @@
-const baseUrl = 'http://localhost:3001';
-export const handleServerResponse = (res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-};
+const baseUrl = process.env.NODE_ENV === "production"
+    ? "https://api.whattowearrs.crabdance.com"
+    : "http://localhost:3001";
 
 export const jsonHeaders = {
     "Content-Type": "application/json",
@@ -13,6 +12,13 @@ export const getAuthHeaders = () => {
     return token
         ? { ...jsonHeaders, Authorization: `Bearer ${token}` }
         : jsonHeaders;
+};
+
+export const handleServerResponse = (res) => {
+    if (res.ok) {
+        return res.json();
+    }
+    return res.json().then((err) => Promise.reject(err));
 };
 
 export const register = ({ name, avatar, email, password }) => {
