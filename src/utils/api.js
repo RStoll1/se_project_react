@@ -1,5 +1,5 @@
 const baseUrl = process.env.NODE_ENV === "production"
-    ? "http://api.whattowearrs.crabdance.com"
+    ? "https://api.whattowearrs.crabdance.com"
     : "http://localhost:3001";
 
 export const jsonHeaders = {
