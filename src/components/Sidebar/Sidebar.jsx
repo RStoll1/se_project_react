@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext.jsx";
-import avatar from "../../assets/defaultavatar.png";
+import avatar from "../../assets/DefaultAvatar.png";
 import React from "react";
 
 export default function Sidebar({ handleEditClick, handleLogoutClick }) {
